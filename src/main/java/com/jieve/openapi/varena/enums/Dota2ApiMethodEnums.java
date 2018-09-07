@@ -12,7 +12,9 @@ public enum Dota2ApiMethodEnums {
     /*
     * 获取所有DOTA2英雄
     */
-    METHOD_GETALLHEROS(1, "/data-service/dota2/public/raw/heroes", new String[0]);
+    METHOD_GETALLHEROS(1, "/data-service/dota2/public/raw/heroes", new String[0]),
+
+    METHOD_GETALLITEMS(2, "/data-service/dota2/public/raw/items", new String[0]);
 
     Dota2ApiMethodEnums(int id, String uri, String[] paramKeys) {
         this.id = id;

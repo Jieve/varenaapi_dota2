@@ -24,6 +24,7 @@ public class InitUtil {
             Constant.properties.load(in);
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(-1);
         } finally {
             if (null != in){
                 in.close();

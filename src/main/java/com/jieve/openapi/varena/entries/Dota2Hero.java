@@ -29,11 +29,11 @@ public class Dota2Hero implements Serializable {
         if (null == heroJson) {
             return;
         }
-        this.heroId = heroJson.getIntValue(Constant.API_RESULT_HEROFIELD_HEROID);
+        this.id = heroJson.getIntValue(Constant.API_RESULT_HEROFIELD_HEROID);
         this.attackType = AttackTypeEnums.getByKey(heroJson.getString(Constant.API_RESULT_HEROFIELD_ATTACKTYPE));
         this.cnName = heroJson.getString(Constant.API_RESULT_HEROFIELD_CNNAME);
         this.enName = heroJson.getString(Constant.API_RESULT_HEROFIELD_ENNAME);
-        this.heroName = heroJson.getString(Constant.API_RESULT_HEROFIELD_HERONAME);
+        this.name = heroJson.getString(Constant.API_RESULT_HEROFIELD_HERONAME);
         this.legs = heroJson.getIntValue(Constant.API_RESULT_HEROFIELD_LEGS);
         this.primaryAttribute = PrimaryAttributeEnums.getByKey(heroJson.getString(Constant.API_RESULT_HEROFIELD_PRIMARYATTR));
         List<String> cnRoles = JSON.parseArray(heroJson.getString(Constant.API_RESULT_HEROFIELD_CNROLES), String.class);
@@ -61,12 +61,12 @@ public class Dota2Hero implements Serializable {
     /**
      * 英雄ID
      */
-    private int heroId;
+    private int id;
 
     /**
      * 英雄全名
      */
-    private String heroName;
+    private String name;
 
     /**
      * 英雄英文名称
@@ -98,20 +98,20 @@ public class Dota2Hero implements Serializable {
      */
     private List<RoleEnums> roles;
 
-    public int getHeroId() {
-        return heroId;
+    public int getId() {
+        return id;
     }
 
-    public void setHeroId(int heroId) {
-        this.heroId = heroId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getHeroName() {
-        return heroName;
+    public String getName() {
+        return name;
     }
 
-    public void setHeroName(String heroName) {
-        this.heroName = heroName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEnName() {

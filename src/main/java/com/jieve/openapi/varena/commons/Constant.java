@@ -67,7 +67,7 @@ public class Constant {
     public static final String API_RESULT_DATA_KEY = "data";
 
     /**
-     *英雄
+     *DOTA2英雄
      */
     public static final String API_RESULT_HEROFIELD_HEROID = "hero_id";
     public static final String API_RESULT_HEROFIELD_HERONAME = "hero_name";
@@ -78,6 +78,19 @@ public class Constant {
     public static final String API_RESULT_HEROFIELD_PRIMARYATTR = "primary_attr";
     public static final String API_RESULT_HEROFIELD_CNROLES = "cn_roles";
     public static final String API_RESULT_HEROFIELD_ENROLES = "en_roles";
+
+
+    /**
+     * DOTA2物品
+     */
+    public static final String API_RESULT_ITEMFIELD_ID = "id";
+    public static final String API_RESULT_ITEMFIELD_NAME = "name";
+    public static final String API_RESULT_ITEMFIELD_COST = "cost";
+    public static final String API_RESULT_ITEMFIELD_CNNAME = "cn_name";
+    public static final String API_RESULT_ITEMFIELD_ENNAME = "en_name";
+    public static final String API_RESULT_ITEMFIELD_RECIPE = "recipe";
+    public static final String API_RESULT_ITEMFIELD_SECRETSHOP = "secret_shop";
+    public static final String API_RESULT_ITEMFIELD_SIDESHOP = "side_shop";
 
 
 

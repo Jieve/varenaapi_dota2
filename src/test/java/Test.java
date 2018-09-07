@@ -23,7 +23,9 @@ public class Test {
 
     public static void main(String[] args) {
 //            System.out.println(HttpHelper.get(Constant.API_DOMAIN_NAME, "/data-service/dota2/public/raw/heroes", null));
-        System.out.println(JSON.toJSONString(VarenaApi.getAllHeros()));
+//        System.out.println(JSON.toJSONString(VarenaApi.getAllHeros()));
+
+        System.out.println(JSON.toJSONString(VarenaApi.getAllItems()));
 
 //        System.out.println(new String[0].length >= 0);
 

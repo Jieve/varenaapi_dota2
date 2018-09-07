@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.jieve.openapi.varena.commons.Constant;
 import com.jieve.openapi.varena.entries.Dota2Hero;
+import com.jieve.openapi.varena.entries.Dota2Item;
 import com.jieve.openapi.varena.enums.Dota2ApiMethodEnums;
 import com.jieve.openapi.varena.exceptions.ValidateException;
 import com.jieve.openapi.varena.utils.HttpHelper;
@@ -44,6 +45,19 @@ public class VarenaApi {
     }
 
     /**
+     * 获取所有DOTA2已发布物品信息
+     * @return
+     */
+    public static List<Dota2Item> getAllItems(){
+        List<Dota2Item> list = null;
+        String result = process(Dota2ApiMethodEnums.METHOD_GETALLITEMS, null);
+        if (StringUtils.isNotEmpty(result)){
+            list = parseItems(result);
+        }
+        return list;
+    }
+
+    /**
      * 将API返回数据处理成英雄实体的集合
      * @param resource
      * @return
@@ -59,6 +73,29 @@ public class VarenaApi {
                     JSONObject eachJson = JSON.parseObject(each);
                     if (null != eachJson){
                         list.add(new Dota2Hero(eachJson));
+                    }
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 将API返回数据处理成物品实体的集合
+     * @param resource
+     * @return
+     */
+    private static List<Dota2Item> parseItems(String resource){
+        List<Dota2Item> list = null;
+        JSONObject resultJson = JSON.parseObject(resource);
+        if (Constant.API_RESULT_RETURNCODE_OK == resultJson.getIntValue(Constant.API_RESULT_RETURNCODE_KEY)){
+            List<String> data = JSON.parseArray(resultJson.getString(Constant.API_RESULT_DATA_KEY), String.class);
+            if (CollectionUtils.isNotEmpty(data)) {
+                list = Lists.newArrayList();
+                for (String each : data) {
+                    JSONObject eachJson = JSON.parseObject(each);
+                    if (null != eachJson){
+                        list.add(new Dota2Item(eachJson));
                     }
                 }
             }
